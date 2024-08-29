@@ -6,11 +6,11 @@ import curses
 
 
 def get_product_names(products):
-    temp = []
+    product_names = []
     for id in products:
-        temp.append(products[id]["name"])
+        product_names.append(products[id]["name"])
     
-    return temp
+    return product_names
 
 def load_data(filename):
     products = {}
@@ -90,27 +90,4 @@ os.system('cls')
 locale.setlocale(locale.LC_ALL, 'sv_SE.UTF-8')  
 
 products = load_data('db_products.csv')
-
-
 curses.wrapper(main)
-
-
-# def print_list():
-#     for product_id in products:
-        
-#         print(products[product_id]["name"])
-
-
-# import curses
-
-
-
-# set the background color 
-# of the turtle screen 
-
-# move turtle 
-
-# Example usage
-# print_list()
-
-
