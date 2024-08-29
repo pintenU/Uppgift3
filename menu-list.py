@@ -79,7 +79,7 @@ def main(stdscr):
             stdscr.addstr(0, 0, f"You selected '{items[current_row]}'") 
             stdscr.refresh() 
             stdscr.getch() 
-            break 
+            # break # break after selected 
         
         print_menu(stdscr, current_row)
     
