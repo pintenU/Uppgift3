@@ -1,11 +1,10 @@
 import locale
 
 class Product:
-    def __init__(self, category, name, price, shelf_number, quantity):
+    def __init__(self, category, name, price, quantity):
         self.category = category
         self.name = name
         self.price = price
-        self.shelf_number = shelf_number
         self.quantity = quantity
 
     def __str__(self):
@@ -16,9 +15,9 @@ class Inventory:
     def __init__(self):
         self.products = []
 
-    def add_product(self, category, name, price, shelf_number, quantity):
+    def add_product(self, category, name, price, quantity):
         # Create a Product instance and add it to the inventory
-        new_product = Product(category, name, price, shelf_number, quantity)
+        new_product = Product(category, name, price, quantity)
         self.products.append(new_product)
         return f"Added {new_product.name} to the inventory."
 
