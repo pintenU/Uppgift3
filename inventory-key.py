@@ -35,11 +35,11 @@ class Inventory:
                 return f"{product_name} has been removed from the inventory."
         return "Product not found."
 
-    def display_inventory(self):
-        if not self.products:
-            return "Inventory is empty."
-        inventory_list = "\n".join(str(product) for product in self.products)
-        return f"Current Inventory:\n{inventory_list}"
+        def display_inventory(self):
+            if not self.products:
+                return "Inventory is empty."
+            inventory_list = "\n".join(str(product) for product in self.products)
+            return f"Current Inventory:\n{inventory_list}"
 
 
 # Example Usage
