@@ -1,9 +1,9 @@
 import locale
 
 class Product:
-    def __init__(self, category, name, price, quantity):
-        self.category = category
+    def __init__(self, name, desc, price, quantity):
         self.name = name
+        self.desc = desc
         self.price = price
         self.quantity = quantity
 
@@ -15,9 +15,9 @@ class Inventory:
     def __init__(self):
         self.products = []
 
-    def add_product(self, category, name, price, quantity):
+    def add_product(self, name, desc, price, quantity):
         # Create a Product instance and add it to the inventory
-        new_product = Product(category, name, price, quantity)
+        new_product = Product(name, desc, price, quantity)
         self.products.append(new_product)
         return f"Added {new_product.name} to the inventory."
 
@@ -35,11 +35,11 @@ class Inventory:
                 return f"{product_name} has been removed from the inventory."
         return "Product not found."
 
-        def display_inventory(self):
-            if not self.products:
-                return "Inventory is empty."
-            inventory_list = "\n".join(str(product) for product in self.products)
-            return f"Current Inventory:\n{inventory_list}"
+    def display_inventory(self):
+        if not self.products:
+            return "Inventory is empty."
+        inventory_list = "\n".join(str(product) for product in self.products)
+        return f"Current Inventory:\n{inventory_list}"
 
 
 # Example Usage
@@ -50,8 +50,8 @@ if __name__ == "__main__":
     inventory = Inventory()
 
     # Add products to inventory by passing details directly
-    print(inventory.add_product("Electronics", "Laptop", 22000.00, 1, 10))
-    print(inventory.add_product("Electronics", "Phone", 8000.00, 1, 20))
+    print(inventory.add_product("Laptop", "desc", 22000.00, 10))
+    print(inventory.add_product("Phone", "desc", 8000.00, 20))
 
     # Display inventory
     print(inventory.display_inventory())
