@@ -29,12 +29,6 @@ def load_data(filename):
 
 #gör en funktion som hämtar en produkt
 
-def get_product(products, id):
-    if id < 0 or id > len(products):
-        return "Produkten hittas inte"
-    else:
-        return f"{products[id]['name']} {products[id]['desc']}"
-    
     
 def remove_product(products, id):
     print(id)
@@ -52,6 +46,18 @@ def remove_product(products, id):
         return f"Product with id {id} not found"
 
 
+def get_product(products, id):
+    # Go through each product in the list
+    for product in products:
+        # Check if the product's id matches the given id
+        if product["id"] == id:
+            # If it matches, return the product's name and description
+            return f"{product['name']} {product['desc']}"
+    
+    # If no matching product is found, return this message
+    return "Produkten hittas inte"
+
+
 def get_products(products):
     product_list = []
     for product in products:
@@ -60,26 +66,26 @@ def get_products(products):
     
     return "\n".join(product_list)
 
-
 #TODO: gör om så du slipper använda global-keyword (flytta inte "product = []")
 #TODO: skriv en funktion som returnerar en specifik produkt med hjälp av id
 
 
 locale.setlocale(locale.LC_ALL, 'sv_SE.UTF-8')  
 
-os.system('cls')
+os.system('cls' if os.name == 'nt' else 'clear')
 products = load_data('db_products.csv')
-
 
 while True:
     try:
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
+
         print("\n")
         print(get_products(products))
         
         id = int(input("Ta bort produkt (ange nummer): ")) 
 
-        print(remove_product(products, id))
+        # print(remove_product(products, id))
+        print(get_product(products, id))
         sleep(0.2)
     except:
         print("Sweet summer child du behöver skriva siffror")
