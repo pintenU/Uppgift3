@@ -77,7 +77,7 @@ while True:
         print("\n")
         print(get_products(products))
         
-        id = int(input("vilken? ")) 
+        id = int(input("Ta bort produkt (ange nummer): ")) 
 
         print(remove_product(products, id))
         sleep(0.2)
