@@ -3,9 +3,9 @@ import os
 import locale
 
 def load_data(filename): 
-    products = [] 
+    products = []           #lista
     
-    with open(filename, 'r') as file:
+    with open(filename, 'r') as file:       #öppnar en fil med read-rättighet
         reader = csv.DictReader(file)
         for row in reader:
             id = int(row['id'])
