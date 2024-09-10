@@ -29,7 +29,7 @@ def get_product(id, products):
     return f"{products[id]['name']} \t {products[id]['price']}"
     
 def view_products(products):
-    #TODO: gör så listan visar en nummerlista
+    #TODO: gör en nummerlista med enumerate (att använda index kommer inte fungera i längden)
     
     product_list = []
     for product in products:
