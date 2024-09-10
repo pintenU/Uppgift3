@@ -60,7 +60,7 @@ def view_product(products, id):
 def view_products(products):
     product_list = []
     for index, product in enumerate(products,1 ):
-        product_info = f"{index}) #{product['id']} {product['name']} \t {product['desc']} \t {locale.currency(product['price'], grouping=True)}"
+        product_info = f"{index}) (#{product['id']}) {product['name']} \t {product['desc']} \t {locale.currency(product['price'], grouping=True)}"
         product_list.append(product_info)
     
     return "\n".join(product_list)
