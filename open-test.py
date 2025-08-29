@@ -2,9 +2,14 @@ import csv
 import os
 import locale
 
+
+products = []           #lista
+
+def format_currency(value):
+    return locale.currency(value,grouping=True)
+
+
 def load_data(filename): 
-    products = []           #lista
-    
     with open(filename, 'r') as file:       #öppnar en fil med read-rättighet
         reader = csv.DictReader(file)
         for row in reader:
@@ -23,23 +28,10 @@ def load_data(filename):
                     "quantity": quantity
                 }
             )
-    return products
-    
-def get_product(id, products):
-    return f"{products[id]['name']} \t {products[id]['price']}"
-    
-def view_products(products):
-    #TODO: gör en nummerlista med enumerate (att använda index kommer inte fungera i längden)
-    
-    product_list = []
-    for product in products:
-        product_info = f"(#{product['id']}) {product['name']} \t {product['desc']} \t {locale.currency(product['price'], grouping=True)}"
-        product_list.append(product_info)
-    
-    return "\n".join(product_list)
+   
 
 
-#TODO: gör om så du slipper använda global-keyword (flytta inte "product = []")
+#TODO: hur gör man så funktionen load_data returnerar products istället?
 #TODO: gör så man kan se en numrerad lista som börjar på 1.
 #TODO: skriv en funktion som returnerar en specifik produkt med hjälp av id
 #TODO: skriv en funktion som tar bort en specifik produkt med hjälp av id
@@ -47,14 +39,10 @@ def view_products(products):
 
 locale.setlocale(locale.LC_ALL, 'sv_SE.UTF-8')  
 
-products = load_data('db_products.csv')
+load_data('db_products.csv')
 
-
-while True:
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print(view_products(products))
+os.system('cls')
     
-    id = int(input("vilken produkt vill du ta bort? "))
 
 
 
