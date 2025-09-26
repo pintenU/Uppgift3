@@ -17,7 +17,7 @@ def add_product(products):
     id = int(input("välj id: "))
     name = input("Namn: ")
     desc = input("Beskrivning: ")
-    price = float(input("Pris:n "))
+    price = float(input("Pris:  "))
     quantity = int(input("kvantitet: "))
 
     products.append(
