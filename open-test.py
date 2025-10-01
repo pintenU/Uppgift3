@@ -3,7 +3,7 @@ import os
 import locale
 
 
-          #lista
+        #lista
 
 
 def format_currency(value):
@@ -14,21 +14,28 @@ def list_products(products):
         print(f"{idx}: {product['name']} {product['price']}")
 
 def add_product(products):
-    id = int(input("välj id: "))
+
+    find_max = max(products, key=lambda id: id['id'] )
+    max_id = find_max['id']
+    
+    new_id = max_id + 1
+
+
     name = input("Namn: ")
     desc = input("Beskrivning: ")
     price = float(input("Pris:  "))
     quantity = int(input("kvantitet: "))
 
-    products.append(
-            {
-            "id": id,
-            "name": name,
-            "desc": desc,
-            "price": price, 
-            "quantity": quantity
-            }
-    )
+    product = {}
+
+    product['id'] = new_id
+    product['name'] = name
+    product['desc'] = desc
+    product['price'] = price
+    product['quantity'] = quantity
+
+    products.append(product)
+
     return products
 
 
